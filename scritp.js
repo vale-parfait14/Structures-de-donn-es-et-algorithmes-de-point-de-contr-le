@@ -39,6 +39,29 @@ Mais si notre retour prend "b + a" la sortie sera non ordonné.
  })
 
  console.log(array);
+
+
+ ////////Version algorithmique
+
+ ALGORITHM Rangement
+VAR
+    array: ARRAY [1..7] OF INTEGER := [99, 1, 55, 10, 0, 5,-100];
+    temp, j, i: INTEGER;
+BEGIN
+    temp := 0;
+    FOR i FROM 1 TO LENGTH(array) STEP 1 DO
+         FOR j FROM i TO LENGTH(array) STEP 1 DO
+            IF (array[i] > array[j]) THEN
+                temp := array[i];
+                array[i] := array[j];
+                array[j] := temp;
+            END_IF
+        END_FOR
+    END_FOR
+    FOR i FROM 1 TO LENGTH(array) STEP 1 DO
+        Write(array[i], " ");
+    END_FOR
+END
  
 */
 
